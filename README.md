@@ -52,3 +52,4 @@
 3. npx create-react-app tell-me-what-u-want
 4. npm install prop-types
    > validate package
+5. npm install axios

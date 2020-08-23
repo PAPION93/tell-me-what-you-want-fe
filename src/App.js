@@ -1,47 +1,33 @@
 import React from "react";
+import axios from "axios";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log("hello");
-  }
-
   state = {
-    count: 0,
-  };
-
-  add = () => {
-    this.setState((current) => ({
-      count: current.count + 1,
-    }));
-  };
-  minus = () => {
-    this.setState((current) => ({
-      count: current.count - 1,
-    }));
+    isLoading: true,
+    datas: [],
   };
 
   componentDidMount() {
-    console.log("component rendered");
+    this.getDatas();
   }
 
-  componentDidUpdate() {
-    console.log("component updated");
-  }
+  getDatas = async () => {
+    const headers = {
+      "X-Naver-Client-Id": "",
+      "X-Naver-Client-Secret": "",
+    };
 
-  componentWillUnmount() {
-    console.log("Good be, cruel world");
-  }
+    const datas = await axios.get(
+      "https://openapi.naver.com/v1/search/local?query=만촌역맛집",
+      { headers }
+    );
+
+    console.log(datas);
+  };
 
   render() {
-    console.log("render");
-    return (
-      <div>
-        <h1>number : {this.state.count}</h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
-      </div>
-    );
+    const { isLoading } = this.state;
+    return <div> {isLoading ? "Loading..." : "We are Ready"} </div>;
   }
 }
 
