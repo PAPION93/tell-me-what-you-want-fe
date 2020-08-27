@@ -53,3 +53,6 @@
 4. npm install prop-types
    > validate package
 5. npm install axios
+6. npm install @material-ui/core
+  npm install @material-ui/icons
+7. npm install react-router-dom
