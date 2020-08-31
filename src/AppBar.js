@@ -10,12 +10,18 @@ import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginLeft: 100,
+    marginRight: 100,
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+  },
+  logo: {
+    marginTop: 10,
+    maxWidth: 200,
   },
 }));
 
@@ -35,7 +41,11 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton> */}
           <Typography variant="h6" className={classes.title}>
-            TMWUW
+            <img
+              src="logo_transparent.png"
+              alt="logo"
+              className={classes.logo}
+            />
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
