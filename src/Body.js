@@ -8,25 +8,40 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "block",
-    marginLeft: 100,
-    marginRight: 100,
+    marginLeft: 150,
+    marginRight: 170,
     flexGrow: 1,
-  },
-  text_div: {
-    border: "1px solid #B0B0B0",
-    borderRadius: "5px",
-    width: "100%",
+    '@media (max-width: 1128px)': {
+      marginLeft: 30,
+      marginRight: 30
+    },
+    '@media ( max-width: 500px )': {
+      marginLeft: 0,
+      marginRight: 0,
+      marginTop: 10,
+    }
+    
   },
   text: {
-    width: "40%",
+    width: "100%",
   },
   mainPaper: {
+    background: "content-box",
     backgroundImage: `url(https://a0.muscache.com/im/pictures/d7cd51be-7197-45ba-ac5b-ce2db61787b0.jpg)`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: 750,
+    backgroundSize: "100% 100%",
+    height: "750px",
     borderRadius: "16px",
+    '@media (max-width: 1440px)': {
+      height: "415px"
+    },
+    '@media (max-width: 1128px)': {
+      height: "376px"
+    },
+    '@media ( max-width: 500px )': {
+      borderRadius: "0px",
+    }
   },
   paper: {
     textAlign: "center",
@@ -47,28 +62,19 @@ export default function CenteredGrid() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <form className={classes.text_root} noValidate autoComplete="off">
-            <div className={classes.text_div}>
-              <TextField
-                className={classes.text}
-                id="outlined-search"
-                label="맛집을 찾아볼까요?"
-                type="search"
-                variant="outlined"
-              />
-              <Button
-                className={classes.button}
-                variant="contained"
-                size="large"
-                color="primary"
-              >
-                검색
-              </Button>
-            </div>
+          <form noValidate autoComplete="off">
+            <TextField
+              className={classes.text}
+              id="outlined-search"
+              label="맛집을 찾아볼까요?"
+              type="search"
+              variant="outlined"
+            />
           </form>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.mainPaper}></Paper>
+          <Paper className={classes.mainPaper}>
+          </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>xs=6</Paper>

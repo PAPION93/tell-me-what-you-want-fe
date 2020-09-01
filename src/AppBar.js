@@ -10,8 +10,15 @@ import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginLeft: 100,
-    marginRight: 100,
+    marginLeft: 150,
+    marginRight: 170,
+    '@media (max-width: 1128px)': {
+      marginLeft: 30,
+      marginRight: 30
+    },
+    '@media (max-width: 500px)': {
+      display:"none"
+    }
   },
   menuButton: {
     marginRight: theme.spacing(2),
