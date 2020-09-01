@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     '@media ( max-width: 500px )': {
       marginLeft: 0,
       marginRight: 0,
-      marginTop: 10,
+      marginTop: 30,
     }
     
   },
@@ -41,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
     },
     '@media ( max-width: 500px )': {
       borderRadius: "0px",
+      backgroundImage: `url(https://a0.muscache.com/im/pictures/17ec9365-19d8-49ab-ac19-2e77b458057e.jpg?im_w=720)`,
+      height: "676px"
     }
   },
   paper: {
