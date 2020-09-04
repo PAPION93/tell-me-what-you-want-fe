@@ -3,6 +3,14 @@ import { makeStyles, withStyles, fade } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import Button from '@material-ui/core/Button';
+import SearchIcon from '@material-ui/icons/Search';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,15 +26,45 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 0,
     }
   },
+  search_div: {
+    paddingTop:"30px",
+  },
   text: {
-    marginTop:"30px",
-    width:"95%",
+    width:"90%",
     color: "white",
     textAlign: 'center',
     borderWidth: 0,
-    borderRadius: 30 ,
+    borderRadius: 20,
     borderColor: '#FF5722',
     backgroundColor : "#FFFFFF",
+    '@media (max-width: 1440px)': {
+      width:"80%",
+    },
+    '@media ( max-width: 600px )': {
+      width:"70%",
+    }
+  },
+  button: {
+    marginTop: 3,
+    marginLeft: 10,
+    borderRadius: 10,
+    height: 50,
+  },
+  search_button_text: {
+    width: 45,
+    fontSize: 16,
+    marginLeft: -10,
+    fontWeight: 580,
+  },
+  title_div: {
+    textAlign: "left",
+    marginTop:"30px",
+    marginLeft:"30px",
+  },
+  mainPaper_span: {
+    fontSize: 26,
+    fontWeight: 800,
+    color: "white",
   },
   mainPaper: {
     height: "550px",
@@ -49,22 +87,11 @@ const useStyles = makeStyles((theme) => ({
       height: "400px"
     }
   },
-  subPaper: {
-    textAlign: "center",
-    height: "350px",
-    minWidth: "220px",
+  card_root: {
     borderRadius: "16px",
-    background: "content-box",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "100% 100%",
-    backgroundImage: `url(https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720)`,
-    '@media (max-width: 1440px)': {
-      height: "255px"
-    },
-    '@media (max-width: 1128px)': {
-      height: "200px"
-    },
+  },
+  media: {
+    height: 300,
   },
 }));
 
@@ -76,24 +103,84 @@ export default function CenteredGrid() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.mainPaper} elevation={3}>
-            {/* <TextField className={classes.text} id="filled-search" label="맛집을 찾아볼까요?" type="search" variant="filled" /> */}
-            <TextField
+            <div className={classes.search_div}>
+              <TextField
                 className={classes.text}
                 id="outlined-search"
                 label="맛집을 찾아볼까요?"
                 type="search"
                 variant="outlined"
-              />
+                />
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                startIcon={<SearchIcon />}
+                >
+                  <span className={classes.search_button_text}>검색</span>
+              </Button>
+            </div>
+            <div className={classes.title_div}>
+              <span className={classes.mainPaper_span}>이제, 맛집은<br/>가까운 곳에서.</span>
+            </div>
           </Paper>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.subPaper} elevation={3}></Paper>
+          <Card className={classes.card_root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image="https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720"
+                title="Contemplative Reptile"
+              />
+              {/* <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  Lizard
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                  across all continents except Antarctica
+                </Typography>
+              </CardContent> */}
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Share
+              </Button>
+            </CardActions>
+          </Card>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.subPaper} elevation={3}></Paper>
+          <Card className={classes.card_root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image="https://a0.muscache.com/im/pictures/fdb46962-10c1-45fc-a228-d0b055411448.jpg?im_w=720"
+                title="Contemplative Reptile"
+              />
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Share
+              </Button>
+            </CardActions>
+          </Card>
         </Grid>
         <Grid item xs={4}>
-          <Paper className={classes.subPaper} elevation={3}></Paper>
+          <Card className={classes.card_root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image="https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720"
+                title="Contemplative Reptile"
+              />
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Share
+              </Button>
+            </CardActions>
+          </Card>
         </Grid>
       </Grid>
     </div>

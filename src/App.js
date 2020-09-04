@@ -1,19 +1,22 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Appcss from "./App.css";
-import Restaurant from "./Restaurant";
-import AppBar from "./AppBar";
-import Body from "./Body";
+import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
+import Home from "./Home";
+import Search from "./Search";
 
 class App extends React.Component {
   render() {
     return (
+      <HashRouter>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/search" component={Search} />
+      </HashRouter>
+
+      /*
       <BrowserRouter>
         <AppBar />
         <Body />
-        {/* <Route exact path="/" component={Home} /> */}
-        {/* <Route path="/search" component={Search} /> */}
       </BrowserRouter>
+      */
     );
   }
 }
