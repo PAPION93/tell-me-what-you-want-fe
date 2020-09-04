@@ -4,8 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 130,
     marginRight: 145,
     '@media (max-width: 1128px)': {
-      marginLeft: 30,
+      marginLeft: 10,
       marginRight: 30
     },
     '@media (max-width: 500px)': {
@@ -28,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   logo: {
+    height: 70,
     marginTop: 10,
     maxWidth: 200,
   },
@@ -40,22 +40,14 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" class="default">
         <Toolbar>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Typography variant="h6" className={classes.title}>
+          <Link href="/" className={classes.title}>
             <img
               src="logo.png"
               alt="logo"
               className={classes.logo}
             />
-          </Typography>
-          <Button color="inherit">Login</Button>
+          </Link>
+          <Button color="inherit">로그인</Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
       height: "376px"
     },
     '@media ( max-width: 500px )': {
-      borderRadius: "0px",
+      borderRadius: "16px",
       backgroundImage: `url(https://a0.muscache.com/im/pictures/17ec9365-19d8-49ab-ac19-2e77b458057e.jpg?im_w=720)`,
       height: "400px"
     }
@@ -145,7 +145,7 @@ export default function CenteredGrid() {
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
-                Share
+                맛집을
               </Button>
             </CardActions>
           </Card>
@@ -161,7 +161,7 @@ export default function CenteredGrid() {
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
-                Share
+                열심히
               </Button>
             </CardActions>
           </Card>
@@ -177,7 +177,7 @@ export default function CenteredGrid() {
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
-                Share
+                차자보자
               </Button>
             </CardActions>
           </Card>
