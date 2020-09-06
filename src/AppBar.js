@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '@media (max-width: 500px)': {
       marginLeft: 0,
-      // display:"none"
+      marginRight: 0,
     }
   },
   menuButton: {
@@ -30,6 +30,11 @@ const useStyles = makeStyles((theme) => ({
     height: 70,
     marginTop: 10,
     maxWidth: 200,
+    '@media (max-width: 500px)': {
+      width: 100,
+      height: 40,
+      marginRight: 0,
+    }
   },
 }));
 

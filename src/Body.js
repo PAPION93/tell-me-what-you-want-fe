@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "block",
     marginLeft: 150,
     marginRight: 170,
     '@media (max-width: 1128px)': {
@@ -42,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     },
     '@media ( max-width: 600px )': {
       width:"70%",
+    },
+    '@media ( max-width: 400px )': {
+      width:"60%",
     }
   },
   button: {
