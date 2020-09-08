@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, withStyles, fade } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
@@ -8,9 +8,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,9 +96,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid() {
+function Body(){
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -112,15 +110,23 @@ export default function CenteredGrid() {
                 label="맛집을 찾아볼까요?"
                 type="search"
                 variant="outlined"
+                // value={keyword}
                 />
-              <Button
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-                startIcon={<SearchIcon />}
-                >
-                  <span className={classes.search_button_text}>검색</span>
-              </Button>
+              <Link
+                to={{
+                  pathname: '/search',
+                  state: { keyword: '123' }
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className={classes.button}
+                  startIcon={<SearchIcon />}
+                  >
+                    <span className={classes.search_button_text}>검색</span>
+                </Button>
+              </Link>
             </div>
             <div className={classes.title_div}>
               <span className={classes.mainPaper_span}>이제, 맛집은<br/>가까운 곳에서.</span>
@@ -188,3 +194,5 @@ export default function CenteredGrid() {
     </div>
   );
 }
+
+export default Body;

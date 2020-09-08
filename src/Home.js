@@ -1,11 +1,11 @@
 import React from "react";
-import AppBar from "./AppBar";
+import Header from "./Header";
 import Body from "./Body";
 
 function Home() {
     return (
         <div>
-            <AppBar />
+            <Header />
             <Body />
         </div>
     );
