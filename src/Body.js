@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -98,6 +98,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Body(){
   const classes = useStyles();
+  const [state, setState] = useState({ keyword : "" });
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -110,12 +112,13 @@ function Body(){
                 label="맛집을 찾아볼까요?"
                 type="search"
                 variant="outlined"
-                // value={keyword}
+                value={state.keyword} 
+                onChange={ e=> setState({ ...state, keyword:e.target.value})}
                 />
               <Link
                 to={{
                   pathname: '/search',
-                  state: { keyword: '123' }
+                  state: { keyword: state.keyword }
                 }}
               >
                 <Button

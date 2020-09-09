@@ -8,15 +8,8 @@ class App extends React.Component {
     return (
       <HashRouter>
         <Route exact path="/" component={Home} />
-        <Route exact path="/search/:keyword" component={Search} />
+        <Route path="/search" component={Search} />
       </HashRouter>
-
-      /*
-      <BrowserRouter>
-        <AppBar />
-        <Body />
-      </BrowserRouter>
-      */
     );
   }
 }

@@ -6,17 +6,18 @@ import Header from "./Header";
 class Search extends React.Component {
   state = {
     isLoading: true,
-    restaurantList: []
+    restaurantList: [],
+    keyword : ""
   };
 
-  getDatas = async () => {
+  getDatas = async (keyword) => {
     const {
       data: {
         items
       }
     } = await axios.get('http://127.0.0.1:10080/api/v1/restaurant',{
               params:{
-                query: '만촌역맛집',
+                query: keyword,
                 display: 20,
                 start: 1,
               }
@@ -26,9 +27,14 @@ class Search extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
-    console.log(this.props.keyword);
-    this.getDatas();
+    const { location } = this.props;
+
+    if (!location.state) {
+      return null;
+    }
+
+    this.setState({ keyword: location.state.keyword });
+    this.getDatas(location.state.keyword);
   }
 
   render() {
