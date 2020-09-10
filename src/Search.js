@@ -1,60 +1,46 @@
-import React from "react";
-import axios from "axios";
-import Restaurant from "./Restaurant";
-import Header from "./Header";
+import React from 'react';
+import Header from './Header';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 
-class Search extends React.Component {
-  state = {
-    isLoading: true,
-    restaurantList: [],
-    keyword : ""
-  };
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+  },
+  card_root: {
+    borderRadius: "16px",
+  },
+  media: {
+    height: 300,
+  },
+}));
 
-  getDatas = async (keyword) => {
-    const {
-      data: {
-        items
-      }
-    } = await axios.get('http://127.0.0.1:10080/api/v1/restaurant',{
-              params:{
-                query: keyword,
-                display: 20,
-                start: 1,
-              }
-            });
+export default function Search() {
 
-      this.setState({ restaurantList: items, isLoading: false });
-  };
+  const classes = useStyles();
 
-  componentDidMount() {
-    const { location } = this.props;
-
-    if (!location.state) {
-      return null;
-    }
-
-    this.setState({ keyword: location.state.keyword });
-    this.getDatas(location.state.keyword);
-  }
-
-  render() {
-    const { isLoading, restaurantList } = this.state;
-    return (
-    <div>
+  return (
+    <div className={classes.root}>
       <Header />
-      {isLoading 
-        ? "Loading..."
-        : restaurantList.map((restaurant) => {
-            return (
-              <Restaurant
-                key={restaurant.id}
-                title={restaurant.title}
-                />
-            );
-          })}
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+              
+          </Grid>
+          <Grid item xs={6}>
+            <Paper className={classes.paper}>xs=6</Paper>
+          </Grid>
+        </Grid>
     </div>
-    );
-  }
-}
+  );
 
-export default Search;
+  }

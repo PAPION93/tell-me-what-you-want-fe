@@ -113,7 +113,7 @@ function Body(){
                 type="search"
                 variant="outlined"
                 value={state.keyword} 
-                onChange={ e=> setState({ ...state, keyword:e.target.value})}
+                onChange={ e => setState({ ...state, keyword:e.target.value})}
                 />
               <Link
                 to={{
@@ -144,15 +144,6 @@ function Body(){
                 image="https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720"
                 title="Contemplative Reptile"
               />
-              {/* <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                  across all continents except Antarctica
-                </Typography>
-              </CardContent> */}
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
