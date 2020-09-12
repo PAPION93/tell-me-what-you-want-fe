@@ -26,20 +26,21 @@
   - 벌써 오랜만에 들어옴. 그래서 꾸준함을 위해 날짜나 시간을 정할 필요가 있음.
   - 주중 2번, 주말은 들여다볼 것
 
-## 3. 기능
+## 3. Todo
 
-- 가. 현위치 또는 위치검색으로 시작
-- 나. 원하는 음식 종류 필터링 또는 선정
-- 다. 음식점 선택
+- 현위치 또는 위치검색으로 시작
+- 원하는 음식 종류 필터링 또는 선정
+- 음식점 선택
   - 블로그 서칭
   - 길찾기 안내
-- 라. 추천 음식점
-  - 날씨와 거리를 고려
-- 마. 회원일 경우 데이터 저장
-
-- 부가 기능
-  - 음식점 평가 기능
-  - 일일 검색 순위
+- 추천 기능
+  - 날씨, 거리에 따라
+- 사장님, 회원 기능 추가
+  - 사장님
+    - 웨이팅 인원, 예상대기시간, 재료소진 등 휴무 등록
+  - 회원
+    - 평점과 간단한 리뷰
+- 검색 순위
 
 ---
 
@@ -53,6 +54,6 @@
 4. npm install prop-types
    > validate package
 5. npm install axios
-6. npm install @material-ui/core  
+6. npm install @material-ui/core
   npm install @material-ui/icons
 7. npm install react-router-dom

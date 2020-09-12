@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Restaurant from "./Restaurant";
-import Header from "./Header";
+import Header from "./component/Header";
 
 class Search extends React.Component {
   state = {
