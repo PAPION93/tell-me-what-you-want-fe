@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import Header from './component/HeaderSearch';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -35,13 +36,50 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Search() {
-
+export default function Search({keyword}) {
   const classes = useStyles();
+
+  const [restaurants, setRestaurant] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        setRestaurant(null);
+        setLoading(true);
+        const response = axios.get('http://127.0.0.1:10080/api/v1/restaurant',{
+          params:{
+            query: '만촌역',
+            display: 20,
+            start: 1,
+          }
+        });
+        setRestaurant(response.data);
+      } catch (e) {
+        setError(e);
+        console.log(e);
+      }
+      setLoading(false);
+    };
+
+    fetchRestaurants();
+    console.log(restaurants);
+  }, []);
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!restaurants) return null;
 
   return (
     <div className={classes.root}>
       <Header/>
+      {restaurants.map(restaurant => (
+        <li key={restaurant.id}>
+          {restaurant.title}
+        </li>
+      ))}
+
         <Grid container spacing={2} className={classes.grid_root}>
           <Grid container spacing={2} xs={12} sm={6} className={classes.grid_root}>
             <Grid item lg={4} md={6} xs={12}>
