@@ -1,49 +1,49 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardMedia from '@material-ui/core/CardMedia';
-import { Link } from 'react-router-dom';
+import Button from "@material-ui/core/Button";
+import SearchIcon from "@material-ui/icons/Search";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardMedia from "@material-ui/core/CardMedia";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     marginLeft: 150,
     marginRight: 170,
-    '@media (max-width: 1128px)': {
+    "@media (max-width: 1128px)": {
       marginLeft: 30,
-      marginRight: 30
+      marginRight: 30,
     },
-    '@media ( max-width: 500px )': {
+    "@media ( max-width: 500px )": {
       marginLeft: 0,
       marginRight: 0,
-    }
+    },
   },
   search_div: {
-    paddingTop:"30px",
+    paddingTop: "30px",
   },
   text: {
-    width:"90%",
+    width: "90%",
     color: "white",
-    textAlign: 'center',
+    textAlign: "center",
     borderWidth: 0,
     borderRadius: 20,
-    borderColor: '#FF5722',
-    backgroundColor : "#FFFFFF",
-    '@media (max-width: 1440px)': {
-      width:"80%",
+    borderColor: "#FF5722",
+    backgroundColor: "#FFFFFF",
+    "@media (max-width: 1440px)": {
+      width: "80%",
     },
-    '@media ( max-width: 600px )': {
-      width:"70%",
+    "@media ( max-width: 600px )": {
+      width: "70%",
     },
-    '@media ( max-width: 400px )': {
-      width:"60%",
-    }
+    "@media ( max-width: 400px )": {
+      width: "60%",
+    },
   },
   button: {
     marginTop: 3,
@@ -59,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title_div: {
     textAlign: "left",
-    marginTop:"30px",
-    marginLeft:"30px",
+    marginTop: "30px",
+    marginLeft: "30px",
   },
   mainPaper_span: {
     fontSize: 26,
@@ -76,17 +76,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "100% 100%",
-    '@media (max-width: 1440px)': {
-      height: "415px"
+    "@media (max-width: 1440px)": {
+      height: "415px",
     },
-    '@media (max-width: 1128px)': {
-      height: "376px"
+    "@media (max-width: 1128px)": {
+      height: "376px",
     },
-    '@media ( max-width: 500px )': {
+    "@media ( max-width: 500px )": {
       borderRadius: "16px",
       backgroundImage: `url(https://a0.muscache.com/im/pictures/17ec9365-19d8-49ab-ac19-2e77b458057e.jpg?im_w=720)`,
-      height: "400px"
-    }
+      height: "400px",
+    },
   },
   card_root: {
     borderRadius: "16px",
@@ -96,9 +96,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Body(){
+function Body() {
   const classes = useStyles();
-  const [state, setState] = useState({ keyword : "" });
+  const [state, setState] = useState({ keyword: "" });
 
   return (
     <div className={classes.root}>
@@ -112,27 +112,26 @@ function Body(){
                 label="맛집을 찾아볼까요?"
                 type="search"
                 variant="outlined"
-                value={state.keyword} 
-                onChange={ e => setState({ ...state, keyword:e.target.value})}
-                />
-              <Link
-                to={{
-                  pathname: '/search',
-                  state: { keyword: state.keyword }
-                }}
-              >
+                value={state.keyword}
+                onChange={(e) => setState({ keyword: e.target.value })}
+              />
+              <Link to={`/search?keyword=${state.keyword}`}>
                 <Button
                   variant="contained"
                   color="secondary"
                   className={classes.button}
                   startIcon={<SearchIcon />}
-                  >
-                    <span className={classes.search_button_text}>검색</span>
+                >
+                  <span className={classes.search_button_text}>검색</span>
                 </Button>
               </Link>
             </div>
             <div className={classes.title_div}>
-              <span className={classes.mainPaper_span}>이제, 맛집은<br/>가까운 곳에서.</span>
+              <span className={classes.mainPaper_span}>
+                이제, 맛집은
+                <br />
+                가까운 곳에서.
+              </span>
             </div>
           </Paper>
         </Grid>
