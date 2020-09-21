@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./component/HeaderSearch";
+import Map from "./component/Map";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -12,9 +12,7 @@ import StarIcon from "@material-ui/icons/Star";
 import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
+  root: {},
   grid_root: {
     padding: theme.spacing(1),
   },
@@ -22,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
   },
+  card: {
+    boxShadow: "none",
+  },
   media: {
     height: 180,
     borderRadius: "10px",
   },
-  card_root: {
-    boxShadow: "none",
-  },
-  card_content: {
+  cardContent: {
     verticalAlign: "bottom",
     paddingTop: 5,
     paddingBottom: 0,
@@ -93,13 +91,13 @@ export default function Search() {
         >
           {restaurants.map((restaurant) => (
             <Grid item lg={4} md={6} xs={12}>
-              <Card className={classes.card_root}>
+              <Card className={classes.card}>
                 <CardMedia
                   className={classes.media}
                   image="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2F201407-xl-seared-sous-vide-style-tri-tip.jpg%3Fitok%3DqbBqP5W8"
                   title="Meat"
                 />
-                <CardContent className={classes.card_content}>
+                <CardContent className={classes.cardContent}>
                   <Typography
                     variant="caption"
                     color="textPrimary"
@@ -135,7 +133,7 @@ export default function Search() {
           ))}
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
+          <Map />
         </Grid>
       </Grid>
     </div>

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 0,
     },
   },
-  search_div: {
+  searchDiv: {
     paddingTop: "30px",
   },
   text: {
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "30px",
     marginLeft: "30px",
   },
-  mainPaper_span: {
+  mainPaperSpan: {
     fontSize: 26,
     fontWeight: 800,
     color: "white",
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
       height: "400px",
     },
   },
-  card_root: {
+  card: {
     borderRadius: "16px",
   },
   media: {
@@ -105,7 +105,7 @@ function Body() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.mainPaper} elevation={3}>
-            <div className={classes.search_div}>
+            <div className={classes.searchDiv}>
               <TextField
                 className={classes.text}
                 id="outlined-search"
@@ -127,7 +127,7 @@ function Body() {
               </Link>
             </div>
             <div className={classes.title_div}>
-              <span className={classes.mainPaper_span}>
+              <span className={classes.mainPaperSpan}>
                 이제, 맛집은
                 <br />
                 가까운 곳에서.
@@ -136,7 +136,7 @@ function Body() {
           </Paper>
         </Grid>
         <Grid item xs={4}>
-          <Card className={classes.card_root}>
+          <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
@@ -152,7 +152,7 @@ function Body() {
           </Card>
         </Grid>
         <Grid item xs={4}>
-          <Card className={classes.card_root}>
+          <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
@@ -168,7 +168,7 @@ function Body() {
           </Card>
         </Grid>
         <Grid item xs={4}>
-          <Card className={classes.card_root}>
+          <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
