@@ -1,4 +1,4 @@
-# 최적의 음식점 찾기(Front-end)
+# 최적의 음식점 찾기(Frontend React)
 
 > 현재위치와 음식종류 그리고 +a 로 최적의 음식점을 찾아보자  
 > 첫 작성, 최대 일주일간 아이디어만 내볼 것
@@ -11,22 +11,8 @@
 - 미리 생각안하고 계획없다고 혼이 난다.
 - 그래도 난 업무시간엔 생각할 수 없다! 개발을 열심히!
 - 지금도 혼나고 먼길 돌아와 공부할겸 한번 만들어본다.
-- 간단하게
 
-## 2. 사용기술
-
-- **Front-end : React**
-- Back-end : Laravel
-- 네이버 클라우드 플랫폼 Maps
-
-## 2.5 추가 생각
-
-- 모두 새로 접하는 기술이기 때문에 Study Log 작성하기
-- 꾸준하게 + 데드라인 잡기
-  - 벌써 오랜만에 들어옴. 그래서 꾸준함을 위해 날짜나 시간을 정할 필요가 있음.
-  - 주중 2번, 주말은 들여다볼 것
-
-## 3. Todo
+## 2. Todo
 
 - 현위치 또는 위치검색으로 시작
 - 원하는 음식 종류 필터링 또는 선정
@@ -57,3 +43,4 @@
 6. npm install @material-ui/core
   npm install @material-ui/icons
 7. npm install react-router-dom
+8. npm install react-naver-maps
