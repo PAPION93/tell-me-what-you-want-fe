@@ -62,7 +62,7 @@ export default function Search() {
           },
         }
       );
-      setRestaurant(response.data.items);
+      setRestaurant(response.data);
     } catch (e) {
       setError(e);
     }
@@ -90,7 +90,7 @@ export default function Search() {
           className={classes.grid_root}
         >
           {restaurants.map((restaurant) => (
-            <Grid item lg={4} md={6} xs={12}>
+            <Grid item lg={4} md={6} xs={12} key={restaurant.id}>
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.media}
@@ -117,7 +117,7 @@ export default function Search() {
                     component="p"
                     noWrap
                   >
-                    {restaurant.category}
+                    {restaurant.name}
                   </Typography>
                   <Typography
                     variant="subtitle1"
@@ -125,7 +125,7 @@ export default function Search() {
                     component="p"
                     noWrap
                   >
-                    {restaurant.title}
+                    {restaurant.description}
                   </Typography>
                 </CardContent>
               </Card>
