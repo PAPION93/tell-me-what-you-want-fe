@@ -10,6 +10,9 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import StarIcon from "@material-ui/icons/Star";
 import { useLocation } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -23,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     boxShadow: "none",
   },
-  media: {
+  cardMedia: {
     height: 180,
     borderRadius: "10px",
   },
@@ -53,7 +56,7 @@ export default function Search() {
       setRestaurant(null);
       setLoading(true);
       const response = await axios.get(
-        "http://127.0.0.1:10080/api/v1/restaurant?",
+        "http://127.0.0.1:10080/api/v1/restaurants-images?",
         {
           params: {
             query: keyword,
@@ -72,6 +75,15 @@ export default function Search() {
   useEffect(() => {
     fetchRestaurants();
   }, []);
+
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+  };
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
@@ -92,11 +104,21 @@ export default function Search() {
           {restaurants.map((restaurant) => (
             <Grid item lg={4} md={6} xs={12} key={restaurant.id}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2F201407-xl-seared-sous-vide-style-tri-tip.jpg%3Fitok%3DqbBqP5W8"
-                  title="Meat"
-                />
+                <CardMedia className={classes.cardMedia}>
+                  <Slider {...settings}>
+                    {restaurant.images.map((image) => (
+                      <div key={image.id}>
+                        <img
+                          src={`http://127.0.0.1:10080/api/v1/images/${image.hash_name}`}
+                          alt={image.original_name}
+                          className="slickImage"
+                          height="180"
+                          width="100%"
+                        />
+                      </div>
+                    ))}
+                  </Slider>
+                </CardMedia>
                 <CardContent className={classes.cardContent}>
                   <Typography
                     variant="caption"
