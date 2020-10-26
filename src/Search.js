@@ -82,7 +82,7 @@ export default function Search() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
   };
 
   if (loading) return <div>로딩중..</div>;
