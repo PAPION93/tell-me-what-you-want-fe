@@ -28,13 +28,22 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     height: 180,
-    borderRadius: "10px",
   },
   cardContent: {
     verticalAlign: "bottom",
     paddingTop: 5,
     paddingBottom: 0,
     paddingLeft: 5,
+  },
+  borderRadius: {
+    borderRadius: "12px",
+  },
+  map: {
+    display: "block",
+    width: "100%",
+    height: "980px",
+    backgroundXolor: "#475",
+    overflow: "scroll",
   },
 }));
 
@@ -56,7 +65,7 @@ export default function Search() {
       setRestaurant(null);
       setLoading(true);
       const response = await axios.get(
-        "http://127.0.0.1:10080/api/v1/restaurants-images?",
+        "http://192.168.0.8:10080/api/v1/restaurants-images?",
         {
           params: {
             query: keyword,
@@ -77,7 +86,6 @@ export default function Search() {
   }, []);
 
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -86,7 +94,7 @@ export default function Search() {
   };
 
   if (loading) return <div>로딩중..</div>;
-  if (error) return <div>에러가 발생했습니다</div>;
+  if (error) return <div>{error}에러가 발생했습니다</div>;
   if (!restaurants) return null;
 
   return (
@@ -109,9 +117,9 @@ export default function Search() {
                     {restaurant.images.map((image) => (
                       <div key={image.id}>
                         <img
-                          src={`http://127.0.0.1:10080/api/v1/images/${image.hash_name}`}
+                          src={`http://192.168.0.8:10080/api/v1/images/${image.hash_name}`}
                           alt={image.original_name}
-                          className="slickImage"
+                          className={classes.borderRadius}
                           height="180"
                           width="100%"
                         />
@@ -154,7 +162,7 @@ export default function Search() {
             </Grid>
           ))}
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} className={classes.map}>
           <Map />
         </Grid>
       </Grid>

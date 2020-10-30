@@ -3,9 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    // flexGrow: 1,
-  },
   logo: {
     height: 70,
     marginTop: 10,
